@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Twitterbot-nodejs by nisrulz</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Twitterbot-nodejs</h1>
+        <p>A twitter bot made using nodejs which can post tweets, retweet other tweets and possibly fav tweets</p>
+        <p class="view"><a href="https://github.com/nisrulz/twitterbot-nodejs">View the Project on GitHub <small>nisrulz/twitterbot-nodejs</small></a></p>
+        <ul>
+          <li><a href="https://github.com/nisrulz/twitterbot-nodejs/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/nisrulz/twitterbot-nodejs/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/nisrulz/twitterbot-nodejs">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="twitterbot-nodejs" class="anchor" href="#twitterbot-nodejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>TwitterBot-NodeJS</strong>
+</h1>
+
+<p>Yeah it pretty much does what it says in the title. Its a twitter bot which can post tweets, retweet other tweets and possibly fav tweets.</p>
+
+<p>This is a simple bot , to build which I had to go through a lot of information on the internet possibly because it wasn't updated/consistent. Plus I wanted to learn how build a bot anyhow ;)</p>
+
+<p>Currently active bot using the same code is <a href="https://twitter.com/gdgndbot">GDGND Bot</a>.
+Hopefully it helps some other people who want to build their own bot.</p>
+
+<p>Simple.Easy.Cute (Ok, last one didnot go with the flow..) </p>
+
+<blockquote>
+<p>It attempts to retweet once per hour</p>
+</blockquote>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<ul>
+<li>Install <a href="http://nodejs.org/">Node.js</a>
+</li>
+<li>
+<p>Clone this repo</p>
+
+<div class="highlight highlight-source-shell"><pre>  git clone https://github.com/nisrulz/twitterbot-nodejs.git</pre></div>
+</li>
+<li>
+<p>Run </p>
+
+<div class="highlight highlight-source-shell"><pre>npm install</pre></div>
+
+<blockquote>
+<p>It will install <a href="https://github.com/ttezel/twit">Twit</a>, the library that lets us talk to Twitter.</p>
+</blockquote>
+</li>
+</ul>
+
+<h2>
+<a id="connecting-to-twitter" class="anchor" href="#connecting-to-twitter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Connecting to Twitter</h2>
+
+<ol>
+<li>
+<p>Register a Twitter account and also get its "app info".</p>
+
+<blockquote>
+<p>Twitter doesn't allow you to register multiple twitter accounts on the same email address. I recommend you create a brand new email address (perhaps using Gmail) for the Twitter account. Once you register the account to that email address, wait for the confirmation email.</p>
+</blockquote>
+</li>
+<li><p>Now go <a href="https://dev.twitter.com/apps/new">here</a> and log in as the Twitter account for your bot:</p></li>
+<li>Fill up the form and submit.</li>
+<li>Next once the submission completes you will be taken to a page which has the 
+
+<ul>
+<li>"Settings" tab : Update details here</li>
+<li>"Permissons" tab :  Enable <code>Read and Write</code> </li>
+<li>"Key and Access Token" tab : Click on <code>Create my access token</code>. </li>
+</ul>
+</li>
+<li>
+<p>Use the generated tokens in the "Key and Access Token" tab to fill the fields under the <code>config.js</code> file in your app directory.
+It should look like this:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c1">module</span>.<span class="pl-smi">exports</span> <span class="pl-k">=</span> {
+  consumer_key<span class="pl-k">:</span>         <span class="pl-s"><span class="pl-pds">'</span>blah<span class="pl-pds">'</span></span>,
+  consumer_secret<span class="pl-k">:</span>      <span class="pl-s"><span class="pl-pds">'</span>blah<span class="pl-pds">'</span></span>,
+  access_token<span class="pl-k">:</span>         <span class="pl-s"><span class="pl-pds">'</span>blah<span class="pl-pds">'</span></span>,
+  access_token_secret<span class="pl-k">:</span>  <span class="pl-s"><span class="pl-pds">'</span>blah<span class="pl-pds">'</span></span>
+}</pre></div>
+</li>
+<li>Update the code under <code>bot.js</code> , with the your values. Best of all modify the code, tinker with it.</li>
+<li>
+<p>Now type the following in the command line in your project directory:</p>
+
+<div class="highlight highlight-source-shell"><pre>node bot.js</pre></div>
+</li>
+</ol>
+
+<p>Hopefully at this point you see a message like "Success! Check your bot, it should have retweeted something." 
+Ok it won't say that, you have to code that in. Its simple as </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Success! Check your bot, it should have retweeted something.<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>Check the Twitter account for your bot, and it should have retweeted a tweet with the provided hashtag.</p>
+
+<h3>
+<a id="whats-next" class="anchor" href="#whats-next" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Whats Next</strong>
+</h3>
+
+<p>You might want to push this app to a running server , probably <a href="https://www.heroku.com/">heroku</a>.</p>
+
+<blockquote>
+<p>Note : Heroku servers would go back to sleep if there is no activity after some time, so you can have a look at <a href="https://kaffeine.herokuapp.com/">Kaffeine</a> , to keep your server active.</p>
+</blockquote>
+
+<h2></h2>
+
+<blockquote>
+<p>Do not misuse the twitter api to spam or burden the server load for twitter api , as twitter follows a strict rule of closing down accounts that do that. Please read <a href="https://support.twitter.com/articles/18311">here for the rules</a></p>
+</blockquote>
+
+<h2></h2>
+
+<ul>
+<li>
+<strong>Star</strong> - If you like it</li>
+<li>
+<strong>Fork</strong> - If you like to build your own version</li>
+<li>
+<strong>File an issue</strong> - If you found a bug</li>
+<li>
+<strong>Send a pull request</strong> - If you want to contribute</li>
+</ul>
+
+<h4>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h4>
+
+<p><a href="https://github.com/ttezel/twit">Twit Library</a></p>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h1>
+
+<pre><code>Copyright 2016 Nishant Srivastava
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/nisrulz">nisrulz</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
