@@ -57,6 +57,11 @@ Simple.Easy.Cute (Ok, last one didnot go with the flow..)
 	```
 
 Hopefully at this point you see a message like "Success! Check your bot, it should have retweeted something." 
+Ok it won't say that, you have to code that in. Its simple as 
+
+```javascript
+console.log("Success! Check your bot, it should have retweeted something.");
+```
 
 Check the Twitter account for your bot, and it should have retweeted a tweet with the provided hashtag.
 
