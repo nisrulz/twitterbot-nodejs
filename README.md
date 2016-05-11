@@ -11,8 +11,16 @@ Simple.Easy.Cute (Ok, last one didnot go with the flow..)
 
 + Install [Node.js](http://nodejs.org/)
 + Clone this repo
-+ Run `npm install`
-	> It will install Twit, the library that lets us talk to Twitter.
+ 
+	```bash
+	  git clone https://github.com/nisrulz/twitterbot-nodejs.git
+	```
++ Run 
+	```bash
+	npm install
+	```
+
+	> It will install [Twit](https://github.com/ttezel/twit), the library that lets us talk to Twitter.
 
 ##Connecting to Twitter
 
@@ -36,9 +44,12 @@ Simple.Easy.Cute (Ok, last one didnot go with the flow..)
 	  access_token_secret:  'blah'
 	}
 	```
+1. Update the code under `bot.js` , with the your values. Best of all modify the code, tinker with it.
 1. Now type the following in the command line in your project directory:
 
-`node bot.js`
+	```bash
+	node bot.js
+	```
 
 Hopefully at this point you see a message like "Success! Check your bot, it should have retweeted something." 
 
