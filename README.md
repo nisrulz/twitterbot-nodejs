@@ -2,6 +2,11 @@
 
 Yeah it pretty much does what it says in the title. Its a twitter bot which can post tweets, retweet other tweets and possibly fav tweets.
 
+This is a simple bot , to build which I had to go through a lot of information on the internet possibly because it wasn't updated/consistent. Plus I wanted to learn how build a bot anyhow ;)
+
+Currently active bot using the same code is [GDGND Bot](https://twitter.com/gdgndbot).
+Hopefully it helps some other people who want to build their own bot.
+
 Simple.Easy.Cute (Ok, last one didnot go with the flow..) 
 
 > It attempts to retweet once per hour
@@ -64,6 +69,9 @@ You might want to push this app to a running server , probably [heroku](https://
 
 -
 > Do not misuse the twitter api to spam or burden the server load for twitter api , as twitter follows a strict rule of closing down accounts that do that. Please read [here for the rules](https://support.twitter.com/articles/18311)
+
+#### Credits
+[Twit Library](https://github.com/ttezel/twit)
 
 License
 =======
