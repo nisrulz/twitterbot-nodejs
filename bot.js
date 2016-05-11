@@ -9,7 +9,7 @@ var Twit = require('twit');
 // We need to include our configuration file
 var T = new Twit(require('./config.js'));
 
-// This is the URL of a search for the latest tweets on the '#mediaarts' hashtag.
+// This is the URL of a search for the latest tweets on the #hashtag.
 var hastagSearch = { q: "#hashtag", count: 10, result_type: "recent" };
 
 // A user stream
