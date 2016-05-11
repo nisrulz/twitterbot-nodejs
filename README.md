@@ -70,6 +70,12 @@ You might want to push this app to a running server , probably [heroku](https://
 -
 > Do not misuse the twitter api to spam or burden the server load for twitter api , as twitter follows a strict rule of closing down accounts that do that. Please read [here for the rules](https://support.twitter.com/articles/18311)
 
+-
++ **Star** - If you like it
++ **Fork** - If you like to build your own version
++ **File an issue** - If you found a bug
++ **Send a pull request** - If you want to contribute
+
 #### Credits
 [Twit Library](https://github.com/ttezel/twit)
 
