@@ -62,7 +62,7 @@ function tweetEvent(tweet) {
     }
 }
 
-// This function finds the latest tweet with the #mediaarts hashtag, and retweets it.
+// This function finds the latest tweet with the #hashtag, and retweets it.
 function retweetLatest() {
     T.get('search/tweets', hastagSearch, function(error, data) {
 
