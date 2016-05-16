@@ -1,4 +1,4 @@
-#**TwitterBot-NodeJS**
+#**TwitterBot-NodeJS**  [![Twitter](https://img.shields.io/badge/Twitter-@nisrulz-blue.svg?style=flat)](http://twitter.com/nisrulz)
 
 Yeah it pretty much does what it says in the title. Its a twitter bot which can post tweets, retweet other tweets and possibly fav tweets.
 
