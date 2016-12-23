@@ -1,4 +1,8 @@
-#**TwitterBot-NodeJS**  [![Twitter](https://img.shields.io/badge/Twitter-@nisrulz-blue.svg?style=flat)](http://twitter.com/nisrulz)
+#**TwitterBot-NodeJS**  
+
+### Show some :heart:
+[![GitHub stars](https://img.shields.io/github/stars/nisrulz/twitterbot-nodejs.svg?style=social&label=Star)](https://github.com/nisrulz/twitterbot-nodejs) [![GitHub forks](https://img.shields.io/github/forks/nisrulz/twitterbot-nodejs.svg?style=social&label=Fork)](https://github.com/nisrulz/twitterbot-nodejs/fork) [![GitHub watchers](https://img.shields.io/github/watchers/nisrulz/twitterbot-nodejs.svg?style=social&label=Watch)](https://github.com/nisrulz/twitterbot-nodejs) [![GitHub followers](https://img.shields.io/github/followers/nisrulz.svg?style=social&label=Follow)](https://github.com/nisrulz/twitterbot-nodejs)  
+[![Twitter Follow](https://img.shields.io/twitter/follow/nisrulz.svg?style=social)](https://twitter.com/nisrulz) 
 
 Yeah it pretty much does what it says in the title. Its a twitter bot which can post tweets, retweet other tweets and possibly fav tweets.
 
