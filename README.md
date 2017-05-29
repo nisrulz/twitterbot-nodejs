@@ -89,7 +89,7 @@ You might want to push this app to a running server , probably [heroku](https://
 [Twit Library](https://github.com/ttezel/twit)
 
 
-> If you found this bot helpful or you learned something from the source code and want to thank me, consider [buying me a cup of](https://www.paypal.me/nisrulz) :coffee:
+> If you found this bot helpful or you learned something from the source code and want to thank me, consider [buying me a cup of](https://www.paypal.me/nisrulz/5) :coffee:
 
 License
 =======
