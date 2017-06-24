@@ -1,4 +1,4 @@
-#**TwitterBot-NodeJS**  
+# **TwitterBot-NodeJS**  
 
 ### Show some :heart:
 [![GitHub stars](https://img.shields.io/github/stars/nisrulz/twitterbot-nodejs.svg?style=social&label=Star)](https://github.com/nisrulz/twitterbot-nodejs) [![GitHub forks](https://img.shields.io/github/forks/nisrulz/twitterbot-nodejs.svg?style=social&label=Fork)](https://github.com/nisrulz/twitterbot-nodejs/fork) [![GitHub watchers](https://img.shields.io/github/watchers/nisrulz/twitterbot-nodejs.svg?style=social&label=Watch)](https://github.com/nisrulz/twitterbot-nodejs) [![GitHub followers](https://img.shields.io/github/followers/nisrulz.svg?style=social&label=Follow)](https://github.com/nisrulz/twitterbot-nodejs)  
@@ -16,7 +16,7 @@ Simple.Easy.Cute (Ok, last one didnot go with the flow..)
 > It attempts to retweet once per hour
 
 
-##Installation
+## Installation
 
 + Install [Node.js](http://nodejs.org/)
 + Clone this repo
@@ -31,7 +31,7 @@ Simple.Easy.Cute (Ok, last one didnot go with the flow..)
 
 	> It will install [Twit](https://github.com/ttezel/twit), the library that lets us talk to Twitter.
 
-##Connecting to Twitter
+## Connecting to Twitter
 
 1. Register a Twitter account and also get its "app info".
 	>Twitter doesn't allow you to register multiple twitter accounts on the same email address. I recommend you create a brand new email address (perhaps using Gmail) for the Twitter account. Once you register the account to that email address, wait for the confirmation email.
@@ -70,16 +70,15 @@ console.log("Success! Check your bot, it should have retweeted something.");
 Check the Twitter account for your bot, and it should have retweeted a tweet with the provided hashtag.
 
 
-###**Whats Next**
+### **Whats Next**
 
 You might want to push this app to a running server , probably [heroku](https://www.heroku.com/).
 
 > Note : Heroku servers would go back to sleep if there is no activity after some time, so you can have a look at [Kaffeine](https://kaffeine.herokuapp.com/) , to keep your server active.
-
--
+>
 > Do not misuse the twitter api to spam or burden the server load for twitter api , as twitter follows a strict rule of closing down accounts that do that. Please read [here for the rules](https://support.twitter.com/articles/18311)
 
--
+### Contribute
 + **Star** - If you like it
 + **Fork** - If you like to build your own version
 + **File an issue** - If you found a bug
