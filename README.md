@@ -88,7 +88,9 @@ You might want to push this app to a running server , probably [heroku](https://
 [Twit Library](https://github.com/ttezel/twit)
 
 
-> If you found this bot helpful or you learned something from the source code and want to thank me, consider [buying me a cup of](https://www.paypal.me/nisrulz/5) :coffee:
+> If you found this bot helpful or you learned something from the source code and want to thank me, consider buying me a cup of :coffee:
+>  + [PayPal](https://www.paypal.me/nisrulz/5)
+>  + Bitcoin Address: 13PjuJcfVW2Ad81fawqwLtku4bZLv1AxCL
 
 License
 =======
