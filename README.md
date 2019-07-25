@@ -1,20 +1,14 @@
 # **TwitterBot-NodeJS**  
 
-### Show some :heart:
-[![GitHub stars](https://img.shields.io/github/stars/nisrulz/twitterbot-nodejs.svg?style=social&label=Star)](https://github.com/nisrulz/twitterbot-nodejs) [![GitHub forks](https://img.shields.io/github/forks/nisrulz/twitterbot-nodejs.svg?style=social&label=Fork)](https://github.com/nisrulz/twitterbot-nodejs/fork) [![GitHub watchers](https://img.shields.io/github/watchers/nisrulz/twitterbot-nodejs.svg?style=social&label=Watch)](https://github.com/nisrulz/twitterbot-nodejs) [![GitHub followers](https://img.shields.io/github/followers/nisrulz.svg?style=social&label=Follow)](https://github.com/nisrulz/twitterbot-nodejs)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/nisrulz.svg?style=social)](https://twitter.com/nisrulz) 
+Updated and changed from @nisrulz twitterbot-nodejs to work with the new twitter API and create A retweet framework using an array of search hashtags which are randomly selected to retweet from rather than a single search criteria.
 
-Yeah it pretty much does what it says in the title. Its a twitter bot which can post tweets, retweet other tweets and possibly fav tweets.
+Also fixed;
 
-This is a simple bot , to build which I had to go through a lot of information on the internet possibly because it wasn't updated/consistent. Plus I wanted to learn how build a bot anyhow ;)
+- If search return no result, it changes hashtag and retests instead of throwing an error.
 
-Currently active bot using the same code is [GDGND Bot](https://twitter.com/gdgndbot).
-Hopefully it helps some other people who want to build their own bot.
+- moved "tweeted" console.log from string to string and object to avoid the console.log error of `tweeted:[Object:object]` it now correctly prints the tweet data.
 
-Simple.Easy.Cute (Ok, last one didnot go with the flow..) 
-
-> It attempts to retweet once per hour
-
+- 
 
 ## Installation
 
@@ -22,7 +16,7 @@ Simple.Easy.Cute (Ok, last one didnot go with the flow..)
 + Clone this repo
  
 	```bash
-	  git clone https://github.com/nisrulz/twitterbot-nodejs.git
+	  git clone https://github.com/wilburforce83/twitterbot-nodejs.git
 	```
 + Run 
 	```bash
@@ -70,32 +64,15 @@ console.log("Success! Check your bot, it should have retweeted something.");
 Check the Twitter account for your bot, and it should have retweeted a tweet with the provided hashtag.
 
 
-### **Whats Next**
-
-You might want to push this app to a running server , probably [heroku](https://www.heroku.com/).
-
-> Note : Heroku servers would go back to sleep if there is no activity after some time, so you can have a look at [Kaffeine](https://kaffeine.herokuapp.com/) , to keep your server active.
->
-> Do not misuse the twitter api to spam or burden the server load for twitter api , as twitter follows a strict rule of closing down accounts that do that. Please read [here for the rules](https://support.twitter.com/articles/18311)
-
-### Contribute
-+ **Star** - If you like it
-+ **Fork** - If you like to build your own version
-+ **File an issue** - If you found a bug
-+ **Send a pull request** - If you want to contribute
 
 #### Credits
 [Twit Library](https://github.com/ttezel/twit)
 
 
-> If you found this bot helpful or you learned something from the source code and want to thank me, consider buying me a cup of :coffee:
->  + [PayPal](https://www.paypal.me/nisrulz/5usd)
->  + Bitcoin Address: 13PjuJcfVW2Ad81fawqwLtku4bZLv1AxCL
-
 License
 =======
 
-    Copyright 2016 Nishant Srivastava
+    Copyright 2019 Nishant Srivastava + Wilbur Shearer
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
