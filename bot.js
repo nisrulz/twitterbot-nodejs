@@ -7,6 +7,7 @@ var T = new Twit(require('./config.js'))
 var myScreenName = 'binarybotrading';
 var followers;
 var welcomeTweets;
+var newFollowList;
 // Array of hashtags or usernames to randomly search for on each cycle of the bot:
 var hashtags = ['#binarybot', '#autotrading', 'binarydotcom', '#binarytrading', '#iqoption', '#binaryoptionsignals', '#binarysignals', '#binarysignal', '#tradingbot'] // A list of as may hashtags as you like.
 
@@ -20,6 +21,26 @@ var quoteComment = [
   'Be part of our binary bot movement! Free autotrading for mobile and web, forever! https://discord.gg/mEXmWvH #makemoneyonline #binaryoptions #trading'
 
 ];
+
+function getFollowers() {
+  //Scan hashtags for user accounts that are similar and follow users that you do not already follow.
+  // This increases exposure and will lead to getting more followers
+
+
+  newFollowList.forEach(function (follow) {
+    // follow each in list
+    T.post('friendships/create', {
+      'user_id': follow,
+      'follow': true
+    }, followed);
+    console.log('Followed', follow);
+  });
+
+
+
+
+
+}
 
 // This function finds the latest tweet with the #hashtag, and retweets it.
 function retweetLatest() {
@@ -54,7 +75,7 @@ function retweetLatest() {
       }
 
       welcomeTweets.forEach(function (newFollower) {
-        var response = 'Thanks for following bbTrader, @' + screenName + ' | Check out our free trading bots for @Binarydotcom Mobile http://bit.ly/2K0GArX &  Web http://bit.ly/2Y10EUI'
+        var response = 'Thanks for following bbTrader, @' + newFollower + ' | ' + quote;
         // Post that tweet!
         T.post('statuses/update', {
           status: response
@@ -74,7 +95,9 @@ function retweetLatest() {
 
   T.get('search/tweets', hashtagSearch, function (error, data) {
 
+    newFollowList = reportBouncer(data.statuses.filter(data => data.user.following != true).map(data => data.user.id_str));
 
+    console.log(newFollowList);
     var tweets = data.statuses.filter(data => data.user.screen_name != myScreenName); // remove any tweets already sent by you from search
     console.log(data.statuses.length);
     console.log(tweets.length);
@@ -118,6 +141,7 @@ function retweetLatest() {
 
 
 
+
       }
       // However, if our original search request had an error, we want to print it out here.
       else {
@@ -129,6 +153,8 @@ function retweetLatest() {
       console.log('No tweets found on hashtag, running again');
       retweetLatest();
     }
+
+    getFollowers();
   });
 
 }
@@ -142,11 +168,20 @@ function tweeted(err, reply) {
   }
 }
 
+// Callback to make sure it worked!
+function followed(err, reply) {
+  if (err !== undefined) {
+    console.log(err.message);
+  } else {
+    console.log('Followed new user sucessfully!');
+  }
+}
+
 // Try to retweet something as soon as we run the program...
 retweetLatest()
 // ...and then every hour after that. Time here is in milliseconds, so
 // 1000 ms = 1 second, 1 sec * 60 = 1 min, 1 min * 60 = 1 hour --> 1000 * 60 * 60
-setInterval(retweetLatest, 1000 * 60 * 1);
+setInterval(retweetLatest, 1000 * 60 * 60);
 
 
 
