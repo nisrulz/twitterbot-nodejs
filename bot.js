@@ -1,6 +1,6 @@
 // Debug flag
 
-var debug = false
+var debug = true
 
 // Twitter library
 var Twit = require('twit')
@@ -8,9 +8,11 @@ var Twit = require('twit')
 // We need to include our configuration file
 var T = new Twit(require('./config.js'))
 
-// This is the URL of a search for the latest tweets on the #hashtag.
-var hastagSearch = { q: '#hashtag', count: 10, result_type: 'recent' }
+// Array of hashtags to randomly search for on each cycle of the bot:
+var hashtags = ['#binarybot', '#autotrading', '#binaryoptions', '#tradingbot']
 
+
+/*
 // A user stream
 var stream = T.stream('user')
 // When someone follows the user
@@ -18,18 +20,20 @@ stream.on('follow', followed)
 stream.on('tweet', tweetEvent)
 
 // In this callback we can see the name and screen name
-function followed (event) {
+function followed(event) {
   var name = event.source.name
   var screenName = event.source.screen_name
-  var response = 'Thanks for following me, ' + name + ' @' + screenName
+  var response = 'Thanks for following bbTrader, ' + name + ' @' + screenName + '! why not checkout https://webtrader.binarybottrading.eu or https://bbmobile.binarybottrading.eu !!'
   // Post that tweet!
-  T.post('statuses/update', { status: response }, tweeted)
+  T.post('statuses/update', {
+    status: response
+  }, tweeted)
 
   console.log('I was followed by: ' + name + ' @' + screenName)
 }
 
 // Here a tweet event is triggered!
-function tweetEvent (tweet) {
+function tweetEvent(tweet) {
   // If we wanted to write a file out
   // to look more closely at the data
   // var fs = require('fs')
@@ -52,43 +56,62 @@ function tweetEvent (tweet) {
     txt = txt.replace(/@selftwitterhandle/g, '')
 
     // Start a reply back to the sender
-    var reply = 'Hi @' + name + ' ' + ', Thanks for the mention :)'
+    var reply = 'Hi @' + name + ' ' + ', Thanks for the mention, why not joinour discord: https://discord.gg/xVtsakq'
 
     console.log(reply)
     // Post that tweet!
-    T.post('statuses/update', { status: reply }, tweeted)
+    T.post('statuses/update', {
+      status: reply
+    }, tweeted)
   }
 }
+*/
 
 // This function finds the latest tweet with the #hashtag, and retweets it.
-function retweetLatest () {
-  T.get('search/tweets', hastagSearch, function (error, data) {
+function retweetLatest() {
+
+  // Randomly select the hashtag to search
+  var hash = hashtags[Math.floor(Math.random() * hashtags.length)]
+  //generate the search object:
+  var hashtagSearch = {
+    q: hash,
+    count: 10,
+    result_type: 'recent'
+  };
+  console.log(hash);
+  T.get('search/tweets', hashtagSearch, function (error, data) {
     var tweets = data.statuses
-    for (var i = 0; i < tweets.length; i++) {
-      console.log(tweets[i].text)
-    }
-    // If our search request to the server had no errors...
-    if (!error) {
-      // ...then we grab the ID of the tweet we want to retweet...
-      var retweetId = data.statuses[0].id_str
-      // ...and then we tell Twitter we want to retweet it!
-      T.post('statuses/retweet/' + retweetId, {}, tweeted)
-    }
-    // However, if our original search request had an error, we want to print it out here.
-    else {
-      if (debug) {
-        console.log('There was an error with your hashtag search:', error)
+    if (data.statuses[0] != undefined) {
+      for (var i = 0; i < tweets.length; i++) {
+        // console.log(tweets[i].text)
       }
+      // If our search request to the server had no errors...
+      if (!error) {
+        // ...then we grab the ID of the tweet we want to retweet...
+        var retweetId = data.statuses[0].id_str
+        // ...and then we tell Twitter we want to retweet it!
+        T.post('statuses/retweet/' + retweetId, {}, tweeted)
+      }
+      // However, if our original search request had an error, we want to print it out here.
+      else {
+        if (debug) {
+          console.log('There was an error with your hashtag search:', error)
+        }
+      }
+    } else {
+      console.log('No tweets found on hashtag, running again');
+      retweetLatest();
     }
-  })
+  });
+
 }
 
 // Make sure it worked!
-function tweeted (err, reply) {
+function tweeted(err, reply) {
   if (err !== undefined) {
-    console.log(err)
+    console.log(err.message);
   } else {
-    console.log('Tweeted: ' + reply)
+    console.log('Tweeted: ', reply);
   }
 }
 
