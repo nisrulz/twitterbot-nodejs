@@ -5,7 +5,8 @@ var debug = true;
 var Twit = require('twit')
 var T = new Twit(require('./config.js'))
 var myScreenName = 'binarybotrading';
-
+var followers;
+var welcomeTweets;
 // Array of hashtags or usernames to randomly search for on each cycle of the bot:
 var hashtags = ['#binarybot', '#autotrading', 'binarydotcom', '#binarytrading', '#iqoption', '#binaryoptionsignals', '#binarysignals', '#binarysignal', '#tradingbot'] // A list of as may hashtags as you like.
 
@@ -34,7 +35,40 @@ function retweetLatest() {
   };
   console.log(hash);
 
+  T.get('followers/list', function (error, data) {
 
+    if (!error) {
+
+
+      if (followers === undefined) {
+        followers = reportBouncer(data.users.map(data => data.screen_name));
+        welcomeTweets = followers;
+      }
+
+      if (followers != []) {
+        welcomeTweets = reportBouncer(data.users.map(data => data.screen_name)).filter(function (id) {
+          return !followers.includes(id);
+        });
+        // update followers after getting new ids
+        followers = reportBouncer(data.users.map(data => data.screen_name));
+      }
+
+      welcomeTweets.forEach(function (newFollower) {
+        var response = 'Thanks for following bbTrader, @' + screenName + ' | Check out our free trading bots for @Binarydotcom Mobile http://bit.ly/2K0GArX &  Web http://bit.ly/2Y10EUI'
+        // Post that tweet!
+        T.post('statuses/update', {
+          status: response
+        }, tweeted)
+        console.log('Tweeted back to', newFollower);
+      });
+
+      console.log(welcomeTweets);
+    } else {
+      console.log('Error with follower grab', error);
+    }
+
+
+  })
 
   // Search twitter using the randomly chosen hashtag:
 
@@ -48,7 +82,7 @@ function retweetLatest() {
 
     var randomisedTweet = [Math.floor(Math.random() * tweets.length)]
 
-    console.log(tweets[randomisedTweet]);
+    // console.log(tweets[randomisedTweet]);
 
 
     if (tweets[randomisedTweet] != undefined) {
@@ -112,4 +146,10 @@ function tweeted(err, reply) {
 retweetLatest()
 // ...and then every hour after that. Time here is in milliseconds, so
 // 1000 ms = 1 second, 1 sec * 60 = 1 min, 1 min * 60 = 1 hour --> 1000 * 60 * 60
-setInterval(retweetLatest, 1000 * 60 * 30);
+setInterval(retweetLatest, 1000 * 60 * 1);
+
+
+
+function reportBouncer(arr) {
+  return arr.filter(Boolean);
+};
