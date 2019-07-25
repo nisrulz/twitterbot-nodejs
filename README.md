@@ -16,7 +16,7 @@ Also fixed;
 + Clone this repo
  
 	```bash
-	  git clone https://github.com/nisrulz/twitterbot-nodejs.git
+	  git clone https://github.com/wilburforce83/twitterbot-nodejs.git
 	```
 + Run 
 	```bash
