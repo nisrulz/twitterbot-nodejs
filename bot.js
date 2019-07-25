@@ -1,6 +1,6 @@
 // Debug flag
 
-var debug = true
+var debug = true;
 
 // Twitter library
 var Twit = require('twit')
