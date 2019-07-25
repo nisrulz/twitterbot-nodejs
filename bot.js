@@ -65,14 +65,24 @@ function retweetLatest() {
         console.log(retweetId);
         console.log('@' + tweets[randomisedTweet].user.screen_name);
 
+        // Randomise retweet to quote tweet ratio
+        var reTweet = Math.random() < 0.5;
 
-        // Retweet
-        //  T.post('statuses/retweet/' + retweetId, {}, tweeted);
 
-        // Quote Tweet with @mention of original user
-        // T.post('statuses/update', {
-        // status: '@' + mention + ' ' + quote + ' https://twitter.com/TwitterDev/statuses/' + retweetId
-        //}, tweeted);
+
+
+        if (reTweet) {
+          // Retweet
+          T.post('statuses/retweet/' + retweetId, {}, tweeted);
+        } else {
+          // Quote Tweet with @mention of original user
+          T.post('statuses/update', {
+            status: '@' + mention + ' ' + quote + ' https://twitter.com/TwitterDev/statuses/' + retweetId
+          }, tweeted);
+        }
+
+
+
 
       }
       // However, if our original search request had an error, we want to print it out here.
@@ -102,11 +112,4 @@ function tweeted(err, reply) {
 retweetLatest()
 // ...and then every hour after that. Time here is in milliseconds, so
 // 1000 ms = 1 second, 1 sec * 60 = 1 min, 1 min * 60 = 1 hour --> 1000 * 60 * 60
-setInterval(retweetLatest, 1000 * 60 * 12)
-
-
-
-
-function reportBouncer(arr) {
-  return arr.filter(Boolean);
-};
+setInterval(retweetLatest, 1000 * 60 * 30);
