@@ -1,14 +1,48 @@
 # **TwitterBot-NodeJS**  
 
-Updated and changed from @nisrulz twitterbot-nodejs to work with the new twitter API and create A retweet framework using an array of search hashtags which are randomly selected to retweet from rather than a single search criteria.
+Heavily recoded and modified from @nisrulz twitterbot-nodejs to work with the new twitter API and create A retweet framework using an array of search hashtags which are randomly selected to retweet from rather than a single search criteria. ALong with other features.
 
-Also fixed;
+Fixed;
 
 - If search return no result, it changes hashtag and retests instead of throwing an error.
 
 - moved "tweeted" console.log from string to string and object to avoid the console.log error of `tweeted:[Object:object]` it now correctly prints the tweet data.
 
-- Currently disabled reply to mentions, and follows while it is refactored for the new twit API.
+- Removed all broken stream.on() API calls.
+
+## New Features
+
+- Added screen_name filter to remove you own tweets from the search list `var myScreenName = 'your-name-minus-the@';`
+
+- Added search array `var hashtags = ['#canBeAHash', 'orScreenNameNo@'];`
+
+- Added quote string array for canned quoted tweet comments can include @usernames, #hashtags, and URLS:
+
+```
+var quoteComment = [
+  'Try our xyz, it is the business',
+  'Thanks for this, we are sharing with the world',
+  'Join our fb community for https://facebook.com/blahbalah #winning #bethebest #supertwitterbot'
+ ];
+```
+
+- Randomisers; the choice of hashtag searched, the decision to retweet, or quote tweet with your quote, the quote, and the tweet used in the list is all randomised to bring an element or normal bahviour to the bot. You can have as many items as you want in the arrays and make them as complex as you like. You could even add variables based on the other factors to weight the responses to more accurately reflect the tweet it is quoting using prototype.map() and filter() from the `tweets.statuses` or `tweets.statuses.user` response similar to that used for filtering your own username:
+
+`tweets.statuses.filter(data => data.yourKeyHere != yourFilterHere);`
+ where `yourKeyHere` could be:
+ 
+ ```
+  retweet_count: 0,
+  favorite_count: 1,
+  favorited: false,
+  retweeted: false,
+  possibly_sensitive: false,
+ ```
+ 
+ or you could search for a matching string inside the `tweets.statuses.text` and only tweet a cetain response when a matching string has been found, narrowing your response down further, making it more human like.
+ 
+ 
+ 
 
 ## Installation
 
@@ -72,7 +106,7 @@ Check the Twitter account for your bot, and it should have retweeted a tweet wit
 License
 =======
 
-    Copyright 2019 Nishant Srivastava + Wilbur Shearer
+    Copyright 2019 Nishant Srivastava, totally recoded and appended by Wilbur Shearer
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
