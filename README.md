@@ -16,6 +16,8 @@ Fixed;
 
 - Added search array `var hashtags = ['#canBeAHash', 'orScreenNameNo@'];`
 
+- Added tweet new followers *hacky* (stream no longer works) you **MUST** change line `var response = 'your text'+'@'+ screeName + 'more text'` to whatever welcome message you want to send :)
+
 - Added quote string array for canned quoted tweet comments can include @usernames, #hashtags, and URLS:
 
 ```
@@ -42,7 +44,9 @@ var quoteComment = [
  or you could search for a matching string inside the `tweets.statuses.text` and only tweet a cetain response when a matching string has been found, narrowing your response down further, making it more human like.
  
  
+ ## Features to be Added
  
+ - I will be adding some additional randomizors things like an array of descriptors i.e. `['great', 'excellent','awesome']` etc, which can be used along with other interchangable sections of sentance in order to randomise and auto generate conherent, but differing sentances which mean the same things to keep you tweets fresh.
 
 ## Installation
 
