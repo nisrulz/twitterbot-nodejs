@@ -8,7 +8,7 @@ Also fixed;
 
 - moved "tweeted" console.log from string to string and object to avoid the console.log error of `tweeted:[Object:object]` it now correctly prints the tweet data.
 
-- 
+- Currently disabled reply to mentions, and follows while it is refactored for the new twit API.
 
 ## Installation
 
