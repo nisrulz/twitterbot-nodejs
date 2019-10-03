@@ -5,6 +5,17 @@ var debug = false
 // Twitter library
 var Twit = require('twit')
 
+//Check config file is filled.
+var config = require('./config.js')
+if(config.consumer_key == 'blah' ||
+   config.consumer_secret == 'blah' ||
+   config.access_token == 'blah' ||
+   config.access_token_secret == 'blah'){
+
+	console.log("You must fill your configuration file which is located /config.js");
+	return;
+}
+
 // We need to include our configuration file
 var T = new Twit(require('./config.js'))
 
