@@ -90,7 +90,7 @@ You might want to push this app to a running server , probably [heroku](https://
 
 > If you found this bot helpful or you learned something from the source code and want to thank me, consider buying me a cup of :coffee:
 >  + [PayPal](https://www.paypal.me/nisrulz/5usd)
->  + Bitcoin Address: 13PjuJcfVW2Ad81fawqwLtku4bZLv1AxCL
+
 
 License
 =======
