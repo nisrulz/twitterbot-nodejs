@@ -88,9 +88,7 @@ You might want to push this app to a running server , probably [heroku](https://
 [Twit Library](https://github.com/ttezel/twit)
 
 
-> If you found this bot helpful or you learned something from the source code and want to thank me, consider buying me a cup of :coffee:
->  + [PayPal](https://www.paypal.me/nisrulz/5usd)
-
+If you appreciate my work, consider [buying me](https://www.paypal.me/nisrulz/5usd) a cup of :coffee: to keep me recharged :metal: [[PayPal](https://www.paypal.me/nisrulz/5usd)]
 
 License
 =======
